@@ -1,0 +1,5 @@
+.ol-OR-ul{
+    list-style-type: square;                            /* للتحكم في نوع علامة الترتيب */
+    list-style-position: inside;                        /* للتحكم في مكان العناصر */
+    list-style-image: url(monsters-chevy-logo2.png);    /* لوضع صورة بدلًا من علامة الترتيب */
+}

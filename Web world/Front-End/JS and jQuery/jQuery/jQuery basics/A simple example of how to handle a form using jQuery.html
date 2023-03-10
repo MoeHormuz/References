@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form handling</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <form action="">
+        <label><input type="checkbox" id="html"> HTML</label><br> 
+        <label><input type="checkbox" id="css"> CSS</label><br>
+        <label><input type="checkbox" id="JS"> JavaScript</label><br>
+        <label><input type="checkbox" id="jQuery"> jQuery</label>
+        <hr>
+        <select name="languages" id="languages">
+            <option value="java">Java</option>
+            <option value="cs">C#</option>
+            <option value="php">PHP</option>
+            <option value="vb">Visual Basic</option>
+        </select>
+        <br><br>
+        <input type="button" id="selectBtn" value="Select All">
+        <input type="button" id="deselectBtn" value="Deselect All">
+    </form>
+
+    <script>
+        $(function(){
+            $('#deselectBtn').attr('disabled', 'disabled');
+            
+            $('#selectBtn').click(function(){
+                $('input:checkbox').attr('checked', 'checked');
+                $(this).attr('disabled', 'disabled');
+                $('#deselectBtn').removeAttr('disabled')
+            });
+
+            $('#deselectBtn').click(function(){
+                $('input:checkbox').removeAttr('checked', 'checked');
+                $('#selectBtn').removeAttr('disabled', 'disabled');
+                $(this).attr('disabled', 'disabled')
+            });
+
+            $('#languages').change(function(){
+                alert($(this).val())
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
+
+<!-- Lesson 8 in jQuery basics -->

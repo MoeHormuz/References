@@ -1,0 +1,55 @@
+h1#title{
+    color: yellow;
+    background-color: rgb(52, 83, 52);
+}
+
+h1.title{
+    color: yellow;
+    background-color: rgb(52, 83, 52);
+}
+
+div > h1{
+    color: red;
+    background-color: cyan;
+}
+
+div > h1.test{
+    color: cyan;
+    background-color: red;
+}
+
+input[type = "text"]{
+    border: 2px solid orangered;
+}
+
+input[type = "password"]{
+    color: blue;
+    border: 2px solid darkorchid;
+}
+
+
+/* <!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Hsoub Academy</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <h1 id="title">This is a title</h1>
+        <h1 class="title">And this is another title</h1>
+        <div>
+            <h1>And this is a title inside the Div</h1>
+            <h1>And this is another title inside the Div</h1>
+        </div>
+        <div>
+            <h1 class="test">And this is another title inside the Div with the class attribute</h1>
+        </div>
+        <form action="">
+            <input type="text"><br>
+            <input type="password">
+        </form>
+    </body>
+
+</html> */

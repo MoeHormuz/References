@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event handling</title>
+
+    <!-- Note: Inside the event function, we must put the callback -->
+
+    <script>
+        $(function(){
+            $('*').click(function(){
+                $(this).hide();
+            });
+
+            $('*').dblclick(function(){
+                $(this).hide();
+            });
+
+            $('*').mouseenter(function(){
+                $(this).hide();
+            });
+
+            $('*').keypress(function(){
+                $(this).hide();
+            });
+
+            $('*').focus(function(){
+                $(this).hide();
+            });
+
+            $('*').on('click', function(){
+                $(this).hide();
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<!-- Lesson 7 in jQuery basics and exercise w3schools -->

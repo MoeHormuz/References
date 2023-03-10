@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>animate</title>
+
+    <script>
+        // Syntax: $(selector).animate({styles},speed,easing,callback);
+        // Example:
+
+        $(function () {
+            $('#form, input, select').animate({ borderRadius: '15px', opacity: '1.0' }, 1000, function () {
+                $('#clock').animate({ opacity: '1.0', borderRadius: '15px' }, 1000);
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            background-color: teal;
+        }
+
+        #clock {
+            color: rgb(88, 88, 88);
+            border: 1px solid gray;
+            background-color: antiquewhite;
+            padding: 5px;
+            opacity: 0.0;
+            width: 90px;
+            margin: 20px auto;
+
+        }
+
+        #form {
+
+            background-color: antiquewhite;
+            padding: 20px;
+            margin: 5% auto;
+            width: 290px;
+            border: 1px solid grey;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            opacity: 0.0;
+        }
+
+        form {
+            line-height: 30px;
+        }
+
+        h2,
+        label,
+        .color,
+        select {
+            color: rgb(88, 88, 88);
+        }
+
+        .input {
+            width: 100%;
+            height: 35px;
+            border: 1px solid gray;
+        }
+
+        input[type="button"],
+        input[type="reset"] {
+            width: 100%;
+            border: 1px solid gray;
+            height: 35px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            color: rgb(88, 88, 88);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock"></div>
+    <div id="form">
+        <h2>Enter the following info to creat a new account:</h2>
+        <form action="">
+            <label for="FN">First name:</label><br>
+            <input type="text" id="FN" class="input"><br>
+            <label for="LN">Last name:</label><br>
+            <input type="text" id="LN" class="input"><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" class="input"><br>
+            <label for="sex">Sex:</label><br>
+            <select name="sex" id="sex" class="input">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" class="input"><br>
+            <label for="pwd">Password:</label><br>
+            <input type="password" id="pwd" class="input"><br>
+            <input type="button" value="Sign In" class="color">
+            <input type="reset" value="Clear" class="color">
+        </form>
+    </div>
+    
+    <script>
+        var clockElement = document.getElementById("clock");
+        function updateClock(clock) {
+            clock.innerHTML = new Date().toLocaleTimeString();
+        };
+        setInterval(function () {
+            updateClock(clockElement);
+        });
+    </script>
+</body>
+
+</html>

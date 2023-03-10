@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- In line number 7 we put the jQuery validate cdn link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <title>input validate</title>
+
+    <script>
+
+        $(function () {
+            $('#theForm').validate({             // Here we have selected the form we want to give the validate.
+                rules: {                         // Here in the rules, we select the input that we want to give conditions by setting the value of the name attribute for each input,
+                    FN: { required: true },      // { required: true } it means required field,
+                    LN: { required: true },
+                    age: { required: true },
+                    email: {
+                        required: true,
+                        email: true              // { email: true } it means required an email address,
+                    },
+                    pwd: {
+                        required: true,
+                        minlength: 5,            // { minlength: 5 } it means the password must be at least 5 characters long,
+                        maxlength: 8             // { maxlength: 8 } it means the password must be a maximum of 8 characters,
+                    }
+                },
+                messages: {                      // Here in the messages, we put the error messages that we want to appear to the user,
+                    FN: "Please enter your first name",
+                    LN: "Please enter your last name",
+                    age: "Please enter your age",
+                    email: "Please enter a valid email address",
+                    pwd: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long",
+                        maxlength: "Your password must be a maximum of 8 characters"
+                    }
+                }
+            });
+
+            $('#form, input, select').animate({ borderRadius: '15px', opacity: '1.0' }, 1000, function () {
+                $('#clock').animate({ opacity: '1.0', borderRadius: '15px' }, 1000);
+            });
+        });
+    </script>
+
+    <style>
+        .error {
+            /* Here we have modified the form of the error messages by means of the class that will appear by the validate() function in case of an error, */
+            color: red;
+            text-transform: uppercase;
+        }
+
+        body {
+            background-color: teal;
+        }
+
+        #clock {
+            color: rgb(88, 88, 88);
+            border: 1px solid gray;
+            background-color: antiquewhite;
+            padding: 5px;
+            opacity: 0.0;
+            width: 90px;
+            margin: 20px auto;
+
+        }
+
+        #form {
+
+            background-color: antiquewhite;
+            padding: 20px;
+            margin: 5% auto;
+            width: 290px;
+            border: 1px solid grey;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            opacity: 0.0;
+        }
+
+        form {
+            line-height: 30px;
+        }
+
+        h2,
+        label,
+        input[type="submit"],
+        input[type="reset"],
+        select {
+            color: rgb(88, 88, 88);
+        }
+
+        #gender,
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            height: 35px;
+            border: 1px solid gray;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 100%;
+            border: 1px solid gray;
+            height: 35px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            color: rgb(88, 88, 88);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock"></div>
+    <div id="form">
+        <h2>Enter the following info to creat a new account:</h2>
+        <form id="theForm">
+            <label for="FN">First name:</label><br>
+            <input type="text" id="FN" name="FN"><br>
+            <label for="LN">Last name:</label><br>
+            <input type="text" id="LN" name="LN"><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age"><br>
+            <label for="gender">Gender:</label><br>
+            <select name="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="pwd">Password:</label><br>
+            <input type="password" id="pwd" name="pwd"><br>
+            <input type="submit" value="Sign In">
+            <input type="reset" value="Clear">
+        </form>
+    </div>
+
+    <script>
+        var clockElement = document.getElementById("clock");
+        function updateClock(clock) {
+            clock.innerHTML = new Date().toLocaleTimeString();
+        };
+        setInterval(function () {
+            updateClock(clockElement);
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- Lesson 11 in jQuery basics -->

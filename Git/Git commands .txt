@@ -1,0 +1,195 @@
+                                        (Git)
+
+1- To creat a repository, type:
+        git init 
+
+    init means initialize,
+    The repository will be created in the path we are working on.
+
+
+
+2- To create a new branch, type:
+        git branch <branchName>
+
+   Put the name of the branch you want to create in place of the word <branchName>.
+
+
+
+3- To switch to the new branch, type:
+        git checkout <branchName>
+
+    Put the name of the branch you want to switch to in place of <branchName>.
+
+
+
+4- To merge two branches, type:
+        git merge <branchName>
+
+    Put the name of the branch you want to merge to the branch you are in instead of the word <branchName>.
+    To merge two branches you have to be in one of them.
+
+
+
+5- To create a file, type:
+        touch <file>
+
+    Put the name of the file you want to create in place of the word <file>,
+    The file will be created in the path we are working on.
+
+
+
+6- To see a report on the current state of the repository, type:
+        git status
+
+
+
+7- To define the name for the user working on the current repository, type:
+        git config --global user.name ' '
+
+    Put the name inside the quotes.
+
+
+
+8- To define the email for the user working on the current repository, type:
+        git config --global user.email ' '
+
+    Put the email inside the quotes.
+
+
+
+9- To view the commit log, type:
+        git log
+
+    To exit the log, press Q
+
+
+
+10- To view only the state ID and the commit, type:
+        git log --pretty=one
+
+
+    
+11- To revert to a previous state in the project, copy the state ID from the log,
+    then exit the log and type:
+        git revert <statusID>
+
+    Put the status ID in the place of the word <statusID>,
+    Git may ask you to close open files in the code editor,
+    Git may get you a message that the process is completed, to exit it, type:
+        :q
+
+
+
+
+12- To add the file to the tracking state, type:
+        git add <file>
+
+    Put the name of the file in place of the word <file>.
+
+
+
+13- To add all files in the path we are working on to the tracking state, type:
+        git add .
+
+
+
+14- To remove the file from tracking state, type:
+        git rm --cached <file>
+
+    Put the name of the file in place of the word <file>.
+
+
+
+15- To remove the folder from tracking state, type:
+        git rm --cached -r <folder>/
+
+    Put the name of the folder in place of the word <folder>.
+
+
+
+16- To add a file within a specific folder to the tracking state, type:
+        git add <folder>/<file>
+
+    Put the name of the folder in place of the word <folder>,
+    Put the name of the file in place of the word <file>.
+
+
+
+17- To add all files within a specific folder to the tracking state, type:
+        git add <folder>/
+
+    Put the name of the folder in place of the word <folder>.
+
+
+
+18- To see all changes, type:
+        git diff
+
+
+
+19- To see changes to a specific file, type:
+        git diff <file>
+
+    Put the name of the file whose changes you want to see in place of the word <file>
+
+
+
+20- To commit the changes, type:
+        git commit -m ' '
+
+    Put the message you want inside the quotes.
+
+
+
+21- To undo changes, type:
+        git restore <file>
+
+    or type:
+
+        git checkout -- <file>
+
+    Put the name of the file in place of the word <file>.
+
+
+
+22- If you want Git to ignore some files and folders and not add them to the tracking status, 
+    1 - Create an unnamed file with the extension .gitignore ,
+    2 - Open the file and write in it the names of the files and folders that you want to be ignored by Git ,
+
+    hint: Create the file using Git, because you cannot create a file without a name from the Windows browser.
+
+
+
+23- To clear the screen, type:
+        clear
+
+
+
+24- To add the remote repository to your local repository, type:
+        git remote add <RepoName> <https>
+
+    Put the name you want for the remote repository in place of the word: <RepoName>,
+    Copy the remote repository url and put it in the place of the word: <https>.
+
+
+
+25- To view the available remote repositories, type:
+        git remote
+
+
+
+26- To push the repository, type:
+        git push -u <repoName> <branchName>
+
+    Put the name of the remote repository you wrote when adding the remote repository
+     in the place of the word: <repoName>,
+    Put the name of the branch you want to push the files to in the place of the word: <branchName>.
+
+
+
+27- To pull files from the Github repository, type:
+        git pull <repoName> <branchName>
+
+    Put the name of the remote repository you wrote when adding the remote repository
+     in the place of the word: <repoName>,
+    Put the name of the branch you want to pull the files from in the place of the word: <branchName>.

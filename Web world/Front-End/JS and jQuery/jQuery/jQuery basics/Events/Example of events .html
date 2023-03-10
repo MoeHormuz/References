@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Example of events</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <form action="">
+        <label for="txtName">Name:</label>
+        <input type="text" id="txtName">
+        <input type="button">
+        <input type="reset">
+    </form>
+
+    <script>
+        $(function () {
+            $('label[for=txtName]').click(function () {
+                $(this).addClass('labelStyle')
+            });
+            $('#txtName').focus(function () {
+                $(this).addClass('inputStyle')
+            });
+            $('input[type=button]').val('Sign in');
+            $('input[type=reset]').val('Clear');
+        });
+    </script>
+
+    <style>
+        .labelStyle {
+            color: greenyellow;
+        }
+
+        .inputStyle {
+            border: 1px solid green;
+            background-color: aqua;
+        }
+    </style>
+</body>
+
+</html>
+
+<!-- Lesson 7 in jQuery basics -->

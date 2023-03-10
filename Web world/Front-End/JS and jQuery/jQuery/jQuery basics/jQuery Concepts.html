@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery Concepts</title>
+    <!-- There are functions in the jQuery library that allow us to wait for the page to load
+         before executing the codes, that means we can put the src link to invoke the library inside
+         the <head> element, and no problem if we put it at the bottom inside the <body> element,
+         but there is a note: you have to put jQuery commands after the invoke link
+         so that the commands are recognized. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <a></a> <!-- Now we will control this element through jQuery -->
+
+    <!-- jQuery code is javaScript code but in a short way,
+     so we write it inside the <script> element like write javaScript -->
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('a').text('wiki hsoub').attr('href', 'https://wiki.hsoub.com/jQuery');
+        });
+
+        /* We can shorten the above code by using a dollar sign instead of writing jQuery
+            as in the following figure: */
+
+        $(document).ready(function () {
+            $('a').text('wiki hsoub').attr('href', 'https://wiki.hsoub.com/jQuery');
+        });
+
+        /* Also, we can shorten the code even more by dispensing with the html page select and the
+            "ready()" page-load waiting function, because jQuery puts them both by default, Example: */
+
+        $(function () {
+            $('a').text('wiki hsoub').attr('href', 'https://wiki.hsoub.com/jQuery');
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- Lesson 2 in jQuery basics -->

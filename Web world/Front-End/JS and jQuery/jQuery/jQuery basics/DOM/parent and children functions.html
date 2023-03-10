@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DOM handling</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>  <!-- We will control this div through one of its children -->
+        <h4 id="parentExample">Here is an example of the parent</h4>
+        <p>Here is an example of the parent</p>
+    </div>
+
+    <div id="childrenExample">  <!-- Through this div we will control his children -->
+        <h4>Here is an example of the children</h4>
+        <p>Here is an example of the children</p>
+    </div>
+
+    <script>
+        $(function () {
+            $('#parentExample').parent().css('backgroundColor', 'cyan');  // Here we controlled the parent element through the child element
+
+            $('#childrenExample').children().css('backgroundColor', 'orange');  // Here we controlled the child elements through the parent element
+
+            // And if we want to control only one child element, we define the child element inside the children() function, Example:
+            $('#childrenExample').children('p').css('color', 'white');
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- Lesson 5 in jQuery basics -->

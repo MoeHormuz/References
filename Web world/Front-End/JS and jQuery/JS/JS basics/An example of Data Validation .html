@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Subscription Form:</h1>
+
+    <form onsubmit="return validate()">
+        <table>
+
+            <tr>
+                <td>
+                    <label for="age">Age:</label>
+                </td>
+                <td>
+                    <input type="text" id="age">
+                </td>
+                <td>
+                    <label for="age" id="errorAge"></label>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" id="agree">
+                    <label for="agree">I agree to the terms and conditions.</label>
+                </td>
+                <td>
+                    <label for="agree" id="errorAgree"></label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Register">
+                </td>
+                <td>
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    <script>
+        function validate() {
+
+            let age = document.getElementById("age").value;
+            let isChecked = document.getElementById("agree").checked;
+
+            if (isChecked) {
+                if (age && age.length > 0 && !isNaN(age)) {
+                    return true
+                } else {
+                    document.getElementById("errorAge").innerHTML = "<big style='color: red;'>( You must enter a number )</big>";
+                    return false
+                }
+            } else {
+                document.getElementById("errorAgree").innerHTML = "<big style='color: red;'>( You must agree to the terms )</big>";
+                return false
+            }
+        }
+    </script>
+</body>
+
+</html>

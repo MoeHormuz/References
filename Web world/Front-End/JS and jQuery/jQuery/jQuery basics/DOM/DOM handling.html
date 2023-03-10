@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM handling</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1">
+        <h3>This is the default text in the div1</h3>
+    </div>
+
+    <div id="div2">
+        <p>We will use this div in the removal example</p>
+    </div>
+
+    <script>
+        $(function () {
+            // 1- To add a tag or an element before the tag or element we selected, use the before() function,, Example:
+            $('#div1').before('<h1> Example 1 outside the div </h1>');
+
+            // 2- To add a tag or an element after the tag or element we selected, use the after() function, Example:
+            $('#div1').after('<h1> Example 2 outside the div </h1>');
+
+            // 3- To add a tag or an element inside and at the beginning of the element we selected,, use the prepend() or prependTo() functions, Examples:
+            $('#div1').prepend('<h1> Example 3 inside the div </h1>');
+            $('<h1> Example 3 inside the div </h1>').prependTo('#div1');
+
+            // 4- To add a tag or an element inside and at the end of the element we selected, use the append() or appendTo() functions, Examples:
+            $('#div1').append('<h1> Example 4 inside the div </h1>');
+            $('<h1> Example 4 inside the div </h1>').appendTo('#div1');
+
+            // 5- To remove an element from the page, use the remove() function, Example:
+            $('#div2').remove();
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- Lesson 6 in jQuery basics -->

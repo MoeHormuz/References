@@ -1,0 +1,13 @@
+.content{
+    color: white;
+    /* background-color: red; */                       /* لتغيير لون الخلفية */
+    background-image: url(monsters-chevy-logo2.png);   /* لوضع صورة للخلفية */
+    background-position: center;                       /* لتحديد مكان الخلفية */
+    background-repeat: no-repeat;                      /* لمنع تكرار صورة الخلفية */
+    /* background-repeat: repeat-y;  */                /* لتكرار صورة الخلفية عموديًا */
+    /* background-repeat: repeat-x; */                 /* لتكرار صورة الخلفية افقيًا */
+    opacity: 0.6;                                      /* للتحكم بشفافية الخلفية */  /* opacity هيا خاصية عامة للتحكم بشفافية العنصر */
+    height: 1400px;                                    /* لارتفاع الخلفية */
+    width: 1400px;                                     /* لعُرض الخلفية  */
+
+}

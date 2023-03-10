@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Example of Ajax</title>
+
+    <script>
+        $(document).ready(function () {
+            $('#button').click(function () {
+                $.ajax({
+                    url: 'https://jsonplaceholder.typicode.com/todos',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data, stauts) {
+                        console.log(data);
+                        data.forEach((element) => {
+                            const myElement = $('<p></p>');
+                            const myTitle = $('<span></span>').text(element.title);
+                            const myId = $('<span></span>').text(element.id + '-');
+                            myElement.append(myId);
+                            myElement.append(myTitle);
+                            $('#show').append(myElement);
+                        });
+                        $('#show').toggle();
+                    },
+                    error: function (result, status, error) {
+                        console.log(result);
+                        console.log(status);
+                        console.log(error);
+                    },
+                    complete: function (result, status) {
+                        console.log(result);
+                        console.log(status);
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div id="show" style="display: none;"></div>
+    <button id="button">Click for show data</button>
+
+</body>
+
+</html>

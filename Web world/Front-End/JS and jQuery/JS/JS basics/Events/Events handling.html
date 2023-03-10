@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- Events handling
+
+There are two ways to use events:
+-------------------------------------------------------------------------------------------------------
+1- The first way is to put the event as an attribute in the HTML element
+        and put the "callback" or javascript commands inside it, 
+        Examples: -->
+
+    <!-- Here is an example of putting javascript commands inside the event -->
+    <button onclick="this.innerHTML = new Date().toLocaleDateString()">Click here to see the date</button>
+
+    <!-- Here is an example of putting the callback inside the event -->
+    <button id="swap" onclick="clock()">Click here to see the time</button>
+
+    <script>
+        function clock() {
+            document.getElementById("swap").innerHTML = new Date().toLocaleTimeString();
+        };
+    </script>
+
+    <!-- Note: "Callback" means a function that is passed as an argument to another function 
+                 so that it can be executed in that other function.
+-------------------------------------------------------------------------------------------------------
+2- The second way is by using the addEventListener() function in a JavaScript document only,
+    and its syntax as follow:
+    First, define a variable or constant and then fetch the HTML element in it that you want to add the event to.
+    Second, write the name of the variable or constant, then a dot, then put the function.
+    Inside the function, put in the first parameter "the type of event you want",
+    and in the second parameter, put the callback,
+    Examples: -->
+
+
+    <!--Example one-->
+
+    <button id="fullDate">Click here to see the full date</button>
+
+    <script>
+        const example = document.getElementById("fullDate");
+
+        example.addEventListener("click", function () {
+            example.innerHTML = new Date();
+        });
+    </script>
+
+
+<br><!--Example two--><br>
+
+    <form>
+        <label for="txtName">Enter your name:</label>
+        <input type="text" id="txtName">
+        <input type="button" value="Enter" id="button">
+    </form>
+
+    <script>
+        const mouse = document.getElementById("txtName");
+        const button = document.getElementById("button");
+
+        function changeStyle() {
+            let c = document.getElementById("txtName");
+            c.style.backgroundColor = "beige";
+            c.style.border = "1px solid orange";
+        };
+        function none() {
+            let n = document.getElementById("txtName");
+            n.style.backgroundColor = "white";
+            n.style.border = "1px solid black";
+            n.style.borderRadius = "3px"
+        };
+        function sayHello() {
+            let s = document.getElementById("txtName").value;
+            alert("Welcome " + s);
+        };
+
+        mouse.addEventListener("mouseover", changeStyle);
+        mouse.addEventListener("mouseout", none);
+        button.addEventListener("click", sayHello);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+table{
+    margin: auto;                        /* لجعل الجدول في منتصف الصفحةافقيًا auto */
+    margin-top: 25vh;
+    border-collapse: collapse;    /* لإزالة الفراغات الذي بين حدود الاعمدة و الصفوف collapse */
+}
+table th, td, caption{  /* هنا وضعنا حدود و حواشي لثلاثة عناصر سويًا, وهيا العناصر الذي بداخل الجدول */
+    border: 2px solid gray;
+    padding: 15px;
+}
+table caption{
+    background-color: beige;
+}
+table th{
+    color: cyan;
+    background-color: tan;
+}
+table td{
+    color: thistle;
+    background-color: cadetblue;
+}

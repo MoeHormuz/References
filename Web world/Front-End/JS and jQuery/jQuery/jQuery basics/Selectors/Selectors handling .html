@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Selectors</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $('*') // This will access all the elements of the document
+
+            $('h1') // This will access all elements of type <h1>
+
+            $('h1:first') // This will access the first element on the page of type <h1>
+
+            $('h1:last') // This will access the last element on the page of type <h1>
+
+            $('tr:odd') // This will access all the odd table rows in a table
+
+            $('#idName') // This will access the element with the id name 'idName'
+
+            $('.className') // This will access all the elements with the class name 'className'
+
+            $('[href]') // This will access all the elements with the href attribute
+
+            $('label[for=txtName]') // This will access all the elements of type <label> that have the attribute 'for' with the value 'txtName'
+
+            $('input[name=txtName]') // This will access all the elements of type <input> that have the attribute 'name' with the value 'txtName'
+
+            $('input[name!=txtName]') // This will access all the elements of type <input> that have the attribute 'name' without the value 'txtName'
+
+            $('input[type=button]') // This will access all the elements of type <input> that have the attribute 'type' with the value 'button'
+
+            $('input[name=txtName], input[name=age], input:button') // This will access all the elements we selected
+
+            $(':button') // This will access all button elements, such as the <input type='button'> and the <button> </button>
+
+            $('input') // This will access all elements of type <input>
+        });
+    </script>
+    
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<!-- Lesson 3 and 4 in jQuery basics -->

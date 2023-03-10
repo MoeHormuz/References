@@ -1,0 +1,24 @@
+
+   لاستيراد البيانات (importing) من ملف إلى قاعدة بيانات في MongoDB هناك طريقتين : 
+
+  
+  اولًا يجب كتابت commands الاستيراد في ال cmd وليس في MongoDB لذا إن كنت في MongoDB فأخرج منه بالأمر exit 
+
+
+ 1- لاستيراد بيانات من نوع NoSQL(NRDB) , الطريقة كالتالي : 
+  
+  اذهب إلى مسار الملف الذي تريد استيراد البيانات منه ثم اكتب mongoimport ثم مسافة ثم db-- ثم مسافة و اكتب اسم قاعدة البيانات الذي تريد اضافة البيانات إليها
+ 
+  ثم مسافة ثم collection-- ثم مسافة و اكتب اسم المجموعة الذي تريد وضع البيانات بها ثم مسافة ثم type-- ثم مسافة و اكتب نوع الملف (امتداده)
+
+  ثم مسافة ثم file-- ثم مسافة و اكتب اسم الملف الذي تريد استيراد البيانات منه (اسمه كاملًا مع امتداده) , مثال : 
+ 
+ mongoimport --db movies --collection imdb1 --type json --file movies.json                            0
+
+  و إذا كانت البيانات على شكل مصفوفة أي بداخل اقواس مصفوفة [ ] , اضف الخيار jsonArray-- بعد اسم الملف , مثال : 
+
+ mongoimport --db movies --collection imdb1 --type json --file movies.json --jsonArray                0 
+  
+ 2- لاستيراد بيانات من نوع SQL(RDB) , طريقتها نفس الطريقة الاولى , ولكن فقط نضيف الخيار headerline-- قبل الخيار file-- , مثال :
+
+ mongoimport --db movies --collection imdb2 --type csv --headerline --file movies.csv                 0

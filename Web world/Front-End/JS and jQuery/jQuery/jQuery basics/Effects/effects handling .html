@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Effects</title>
+</head>
+
+<body>
+    <div id="content"></div>
+    <button id="show">Show</button>
+    <button id="hide">Hide</button>
+    <button id="toggle">Toggle</button>
+    <button id="slideUp">Slide Up</button>
+    <button id="slideDown">Slide Down</button>
+    <button id="slideToggle">Slide Toggle</button>
+
+    <script>
+        $(function () {
+            $('#content').css('backgroundColor', 'blueviolet');
+            $('#content').css('height', '200px');
+            $('#content').css('width', '200px');
+
+
+            $('#show').click(function(){
+                $('#content').show(1000)
+            });
+
+            $('#hide').click(function(){
+                $('#content').hide(1000)
+            });
+
+            $('#toggle').click(function(){
+                $('#content').toggle(1000)
+            });
+
+            $('#slideUp').click(function(){
+                $('#content').slideUp(1000)
+            });
+
+            $('#slideDown').click(function(){
+                $('#content').slideDown(1000)
+            });
+
+            $('#slideToggle').click(function(){
+                $('#content').slideToggle(1000)
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- Note: You can express the speed of the effect with a text string, Example: .show("slow") -->

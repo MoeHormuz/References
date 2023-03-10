@@ -1,0 +1,9 @@
+div > h1{
+    color: rgba(49, 49, 49, 0.6);         /* لتغيير لون النص و شفافيته */
+    text-decoration: underline double;      /* زخرفة الخط (لوضع خط سفلي) */
+    text-align: center;                     /* لتحديد مكان النص في الشاشة */
+    text-transform: capitalize;             /* حالة الاحرف */
+    text-shadow: 5px 3px 2px gray;        /* لوضع ضل للنص */
+    text-indent: 3cm;                       /* لتحديد مسافة البداية للنص */
+    direction: ltr;                         /* لتحديد اتجاه النص */ 
+}

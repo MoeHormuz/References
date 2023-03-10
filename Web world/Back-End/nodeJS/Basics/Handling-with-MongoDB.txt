@@ -1,0 +1,256 @@
+There are 6 stages of handling with the MongoDB:
+.
+.
+.
+.
+1- Connect to the Database:
+
+    Steps:
+
+        1- Install mongoose in the project folder with the following command:
+                npm i mongoose
+
+
+        2- Get the connection link from 
+                mongodb.com > Databases > connect
+            or
+                mongodb.com > Databases > Build a Database > Create cluster > connect
+
+
+        3- Connect to the Database & listen for requests with the following code (Write the following code in app.js):
+            -------------------------------------------------------------------------
+                const mongoose = require("mongoose");
+                app.use(express.urlencoded({ extended: true })); //this will helps to get submitted data of form in req.body object
+
+                mongoose.connect("  ")
+                    .then( result => {
+                        app.listen(3000);
+                    })
+                    .catch( err => {
+                        console.log(err);
+                    });
+            -------------------------------------------------------------------------      
+            Hint: Put the Atlas database link or local database link inside brackets for the connect("") function,
+                For Example:
+                - Local DB: mongoose.connect("mongodb://127.0.0.1:27017/DB_Name")
+                - Atlas DB: mongoose.connect("mongodb+srv://moehormuz:<password>@cluster0.sohofpd.mongodb.net/DB_Name?retryWrites=true&w=majority")
+.
+.
+.
+.
+2- Create a Collection (Schema & Model):
+
+    Steps:
+
+        1- Create a folder called "models" & inside it create a file with the name you want, For Example: articleSchema.js
+
+        2- Inside the articleSchema.js file, define the schema & create a model based on the schema, For Example:
+            -------------------------------------------------------------------------
+                const mongoose = require("mongoose");
+                const Schema = mongoose.Schema;
+                
+                // Here define the scheme
+                const articleSchema = new Schema({
+                    title: String,
+                    summary: String,
+                    body: String,
+                });
+                              
+                // Here create a model based on the previous schema
+                const Article = mongoose.model("Article", articleSchema, "CollectionName");
+
+                // Here export the model to use in the app.js file               
+                module.exports = Article;
+            -------------------------------------------------------------------------
+.
+.
+.
+.
+3- Sending data to the Database (POST request):
+
+    Steps:
+
+        1- In HTML make a post request by using the <form> </form> element with action & method attributes, For Example:
+            -------------------------------------------------------------------------
+                <form action="/all-articles" method="post">
+                    <label for="title">Article title:</label>
+                    <input type="text" id="title" name="title" required>
+                
+                
+                    <label for="summary">Article summary:</label>
+                    <input type="text" id="summary" name="summary" required>
+                
+                
+                
+                    <label for="body">Article body:</label>
+                    <textarea id="body" name="body" required></textarea>
+                
+                
+                    <button class="create">Create</button>
+                </form>
+            -------------------------------------------------------------------------
+            Hint: All input elements must have a name attribute
+
+
+        2- In the app.js file, require the schema file and make the POST request, For Example:
+            -------------------------------------------------------------------------
+            // Here require the schema file to use the model inside it
+            const Article = require("./models/articleSchema");
+  
+            // Here send data to database (POST request)
+            app.post("/all-articles", (req, res) => {
+                const article = new Article(req.body);
+                
+                article
+                    .save( )
+                    .then( result => {
+                    res.redirect("/all-articles");
+                })
+                    .catch( err => {
+                    console.log(err);
+                });
+            });
+            -------------------------------------------------------------------------
+.
+.
+.
+.
+4- Getting data from the Database (GET request):
+
+    - In app.js fetch data model from Database using GET request, Examples:
+
+        Example 1 using .find() method:
+            -------------------------------------------------------------------------
+            app.get("/all-articles", (req, res) => {
+
+                Article.find()
+                    .then((result) => {
+                        res.render("index", { title: "HOME", arrArticle: result });
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+            });
+            -------------------------------------------------------------------------
+            Hint: In .find() method result = all data inside mongo DataBase and it is an (Array of objects),
+            we defined a property named arrArticle for the result parameter
+            so that we can use the data stored inside the result parameter in the HTML page to display it,
+
+
+
+        Example 2 using .findById() method:
+            -------------------------------------------------------------------------
+            app.get("/all-articles/:id", (req, res) => {
+
+                Article.findById(req.params.id)
+                    .then((result) => {
+                        res.render("details", { title: "ARTICLE DETAILS", objArticle: result });
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+            });
+            -------------------------------------------------------------------------
+            Hint: In .findById() method result = one document data inside mongo DataBase and it is an (object),
+            we defined a property named objArticle for the result parameter
+            so that we can use the data stored inside the result parameter in the HTML page to display it,
+.
+.
+.
+.
+5- Show data on a page in the website:
+
+    Steps:
+
+        1- Make sure that EJS is installed and setup in the project,
+            and that the extension of the page file you want to show the data inside is .ejs
+
+        2- In the page file that you want to display the data inside:
+        
+        
+            use the forEach() function with HTML by EJS if you are dealing with an array of objects,
+                For Example:
+                ---------------------------------------------------------------------------------------
+                    <% arrArticle.forEach(item=> { %>
+                    
+                        <article>
+                            <h2> <%= item.title %> </h2>
+                        
+                            <p>
+                                <%= item.summary %>
+                                <a class="btn" href="/all-articles/<%= item._id %>"> show more </a>
+                            </p>
+                        </article>
+                    
+                    <% }); %>
+                ---------------------------------------------------------------------------------------
+                Hint: arrArticle = result, which is the property we defined during data getting in stage 4
+
+
+            But in case you are dealing with only one object, there is no need to use the forEach() function,
+                For Example: 
+                ---------------------------------------------------------------------------------------
+                    <section>
+                        <h1>
+                            <%= objArticle.title %>
+                        </h1>
+
+                        <p>
+                            <%= objArticle.body %>
+                        </p>
+                    </section>
+                ---------------------------------------------------------------------------------------
+                Hint: objArticle = result, which is the property we defined during data getting in stage 4
+.
+.
+.
+.
+6- Delete data from the website and the Database (DELETE request):
+
+    Steps:
+
+        1- In the app.js file, make a Delete Request, For Example:
+            -------------------------------------------------------------------------
+                app.delete("/all-articles/:id", (req, res) => {
+                    Article.findByIdAndDelete(req.params.id)
+                        .then((params) => {
+                            res.json({mylink: "/all-articles"})
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
+                });
+            -------------------------------------------------------------------------
+            Hint: You cannot use redirect with DELETE request,
+                so if you want to redirect use window.location.href inside fetch() function in JS file
+                as you will see in the third step,
+
+
+
+        2- In the EJS file, create a button with the data- attribute, For Example:
+            -------------------------------------------------------------------------
+                <button data-linkid="<%= objArticle._id %>" class="create">
+                    Delete this article
+                </button>
+            -------------------------------------------------------------------------
+
+
+
+        3- In the static JavaScript file use the fetch() function, For Example:
+            -------------------------------------------------------------------------
+                const btnElement = document.querySelector(".create");
+                const articleId = btnElement.getAttribute("data-linkId");
+
+                btnElement.addEventListener("click", (eo) => {
+                    fetch(`/all-articles/${articleId}`, { method: "DELETE" })
+                        .then((response) => response.json())
+                        .then((data) => window.location.href = data.mylink)
+                        .catch((err) => console.log(err));
+                });
+            -------------------------------------------------------------------------
+            Hint: Here used window.location.href to redirect,
+            Hint: Don't forget to link the JavaScript file to the EJS file,
+.
+.
+.
+.

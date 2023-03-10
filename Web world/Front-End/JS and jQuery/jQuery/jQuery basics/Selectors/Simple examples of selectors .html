@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+        .titleStyle {
+            color: teal;
+            text-transform: uppercase;
+        }
+        .border{
+            border: 1px solid teal;
+            border-radius: 5px;
+        }
+        .button{
+            color: teal;
+            border: 1px solid teal;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+
+    <form action="">
+        <label for="txtName"></label>
+        <input type="text">
+        <label for="age"></label>
+        <input type="number">
+        <input type="submit">
+        <input type="reset">
+    </form>
+
+    <script>
+        $(function(){
+            $('h1').addClass('titleStyle').text('Enter the following data:');
+
+            $('label:first').addClass('titleStyle').text('Name:');
+            $('label:last').addClass('titleStyle').text('Age:');
+
+            $('input[type=text]').attr('id', 'txtName').addClass('border');
+            $('input[type=number]').attr('id', 'age').addClass('border');
+
+            $(':submit').val('Enter').addClass('button');
+            $(':reset').val('Clear').addClass('button');
+        });
+    </script>
+</body>
+
+</html>

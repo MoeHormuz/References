@@ -1,0 +1,41 @@
+<!-- Use ajax when you need to request data from a web server located on the internet -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Ajax handling</title>
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery.ajax({
+                url: 'https://jsonplaceholder.typicode.com/todos', // url: 'Here put the link you want to fetch data from',
+                type: 'GET',                                       // type: Here put the request type and 'GET' means fetch data (you can search for other request types 'POST', 'PUT', 'DELETE' etc... online),
+                dataType: 'json',                                  // dataType: Here put the data type and we putted 'JSON' for easy display and use in the user interface without the need to convert data types,
+                success: function (data, status) {                   // success: This function is executed when a response is received from the server normally without errors, and it accepts two parameters: (data) which is the data that comes with the request, and (status) which is the status of the request which can contain numbers and explanatory or warning messages from the web server,
+                    console.log(data);
+                    console.log(status);
+                },
+                error: function (result, status, error) {            // error: This function is executed when an error is received from the web server, and it accepts three parameters: (result) It is data coming from a web server that could be an error message or a warning, and (status) It is an error code from one of the HTTP codes, and (error) if there is an explicit error in the response,
+                    console.log(result);
+                    console.log(status);
+                    console.log(error);
+                },
+                complete: function (result, status) {                // complete: This function will be executed whether the function is executed success or the function error, i.e. it will be executed regardless of the response from the web server, and it accepts two parameters: (result) It is data coming from a web server that could be an error message or a warning, and (status) which is the status of the request which can contain numbers and explanatory or warning messages from the web server.
+                    console.log(result);
+                    console.log(status);
+                },
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<!-- Lesson 12 in the jQuery basics -->

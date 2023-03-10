@@ -1,0 +1,16 @@
+.test{
+    display: inline-block;
+    height: 160px;
+    width: 160px;
+    border: 1px solid gray;
+    background-color: thistle;
+    margin-bottom: 2000px;
+}
+
+.test:last-child{                       /* تعني العنصر الاخير اي للتحكم بآخر عنصر فقط يحمل اسم الكلاس :last-child */
+    position: relative;                 /* هذه القيمة تجعل احتساب موضع العنصر من الجهات الاربعه بحسب العناصر المجاورة له */
+ /* position: absolute; */              /* هذه القيمة تجعل احتساب موضع العنصر من الجهات الاربعه بحسب الصفحة كاملة */
+ /* position: fixed; */                 /* هذه القيمة تجعل احتساب موضع العنصر من الجهات الاربعه بحسب الصفحة كاملة و تجعل العنصر ثابت في الشاشة */
+    top: 50px;
+    left: 40px;
+}

@@ -1,0 +1,31 @@
+form{
+    background-color: rgb(214, 221, 235);
+    padding: 20px;
+    width: 200px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 35px;       /* للتحكم بمسافة الارتفاع بين الخطوط او الصناديق الذي بداخل العنصر المحدد */                                   
+    margin: auto;                            /* لتوسيط العنصر افقيًا في شاشة المستخدم */
+    border: 1px dashed rgb(167, 167, 167);
+    border-radius: 15px;                         /* للتحكم بتدوير اركان حد العنصر */
+}
+
+label{
+    color: rgb(114, 113, 113);
+}
+
+input[type="text"], input[type="password"]{            /* هنا حددنا عنصرين */
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 15px;
+    height: 35px;
+    width: 100%;                             /* لجعل العنصر ممتد افقيًا بداخل النموذج */
+}
+
+input[type="submit"]{
+    width: 100%;
+    height: 35px;
+    margin-top: 15px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: rgb(24, 135, 209);
+    border: 1px solid rgb(98, 106, 175);
+}
